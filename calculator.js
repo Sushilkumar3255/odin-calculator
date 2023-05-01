@@ -2,12 +2,12 @@ let operator = "";
 let previousValue = "";
 let currentValue = "";
 
-const CHOICES = {
-  Addition: "+",
-  Subtraction: "-",
-  Multiplication: "x",
-  Division: "/",
-  Decimal: ".",
+const choices = {
+  addition: "+",
+  subtraction: "-",
+  multiplication: "x",
+  division: "/",
+  decimal: ".",
 };
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -78,11 +78,11 @@ function calculate() {
   previousValue = Number(previousValue);
   currentValue = Number(currentValue);
 
-  if (operator === CHOICES.Addition) {
+  if (operator === choices.addition) {
     previousValue += currentValue;
-  } else if (operator === CHOICES.Subtraction) {
+  } else if (operator === choices.subtraction) {
     previousValue -= currentValue;
-  } else if (operator === CHOICES.Multiplication) {
+  } else if (operator === choices.multiplication) {
     previousValue *= currentValue;
   } else {
     previousValue /= currentValue;
@@ -98,7 +98,7 @@ function roundNumber(num) {
 }
 
 function addDecimal() {
-  if (!currentValue.includes(CHOICES.Decimal)) {
-    currentValue += CHOICES.Decimal;
+  if (!currentValue.includes(choices.decimal)) {
+    currentValue += choices.decimal;
   }
 }
