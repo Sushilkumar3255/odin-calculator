@@ -30,9 +30,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   operators.forEach((op) =>
     op.addEventListener("click", function (e) {
-      handleOperator(e.target.textContent);
-      previousScreen.textContent = previousValue + " " + operator;
-      currentScreen.textContent = currentValue;
+      if (currentValue !== ""){
+        handleOperator(e.target.textContent);
+        previousScreen.textContent = previousValue + " " + operator;
+        currentScreen.textContent = currentValue;
+      }
     })
   );
 
@@ -75,8 +77,8 @@ function handleOperator(op) {
 
 // main logic of calculator
 function calculate() {
-  previousValue = Number(previousValue);
-  currentValue = Number(currentValue);
+  previousValue = parseFloat(previousValue);
+  currentValue = parseFloat(currentValue);
 
   if (operator === choices.addition) {
     previousValue += currentValue;
